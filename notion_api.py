@@ -2,20 +2,20 @@ import json
 import requests
 
 
-# curl -X POST https://api.notion.com/v1/databases/8dbeef10972e4374866d905662bdd049/query
+# curl -X POST https://api.notion.com/v1/databases/notion_database_id/query
 
-# -H 'Authorization: Bearer '"secret_cO0QMTTk4Jpj6ng6xYyXjmi83vh6BzynB0gJSu1Z7YJ"''
+# -H 'Authorization: Bearer '"secret_api_key"''
 
 # -o database.json 
 
-DATABASE_ID = "8dbeef10972e4374866d905662bdd049"
+DATABASE_ID = "database_id"
 NOTION_URL = 'https://api.notion.com/v1/databases/'
 
 class NotionSync:
     def __init__(self):
         pass    
 
-    def query_databases(self,integration_token="secret_cO0QMTTk4Jpj6ng6xYyXjmi83vh6BzynB0gJSu1Z7YJ"):
+    def query_databases(self,integration_token="secret_api_key"):
         database_url = NOTION_URL + DATABASE_ID + "/query"
         response = requests.post(database_url, headers={"Authorization": f"{integration_token}"})
         if response.status_code != 200:
